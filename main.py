@@ -52,3 +52,16 @@ df["travel_time_min"] = df["travel_time_min"].clip(5, None)
 
 print(df.head())
 
+print("\n--- Dataset Info ---")
+print(df.info())
+
+print("\n--- Summary Statistics ---")
+print(df.describe())
+
+print("\n--- Unique Values ---")
+for col in ["traffic_level", "weather", "time_of_day", "road_type"]:
+    print(f"{col}: {df[col].unique()}")
+
+df.to_csv("synthetic_routes_dataset.csv", index=False)
+print("\n✅ Dataset saved as 'synthetic_routes_dataset.csv'")
+
